@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Infinite Scrolling Dialog</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Latest compiled and minified CSS -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+  
+  <link rel="stylesheet" href="css/infinite_scrolling_dialog.css">
+
+  
+</head>
+
+<body>
+
+<div class="container-fluid" id="wrapper">
+  <button id="popupDefault">Popup Default</button>
+  <button id="popupSearchBarHeader">Popup SearchBar Header</button>
+  <button id="popupCustomHeader">Popup Custom Header</button>
+  <button id="popupMargin">Popup Margin 30px</button>
+
+  <div id="dialog"></div>
+</div>
+    
+
+<script type="text/javascript" src="js/plugins/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.bpopup.min.js"></script>
+<script type="text/javascript" src="js/infinite_scrolling_dialog.js"></script>
+<script type="text/javascript">
+  var $dialog = null;
+  var page = 0;
+
+  function loadMore() {
+    var offset = page * 30;
+    var length = 30;
+    var html = "";
+    for(var i=offset; i<(offset+length); ++i) {
+      html += '<div style="height: 50px; line-height: 50px; font-size: 20px; text-align: center;">';
+      // html += '<div>';
+      html += (i + 1);
+      html += '</div>';
+    }
+    page = page + 1;
+    return html;
+  }
+  
+  $("#popupDefault").click(function() {
+    $dialog = $("#dialog").infiniteScrollingDialog({
+      onOpen: function($contentView) {
+        console.log("onOpen");
+        page = 0;
+      },
+      onLoad: function($contentView) {
+        console.log("onLoad");
+        $contentView.append(loadMore());
+      }
+    });
+    $dialog.popup();
+  });
+
+  $("#popupSearchBarHeader").click(function() {
+    $dialog = $("#dialog").infiniteScrollingDialog({
+      maxWidth: 420,
+      useSearchBarHeader: true,
+      onOpen: function($contentView) {
+        console.log("onOpen");
+        page = 0;
+      },
+      onLoad: function($contentView) {
+        $contentView.append(loadMore());
+      }
+    });
+    $dialog.popup();
+  });
+
+  $("#popupCustomHeader").click(function() {
+    $dialog = $("#dialog").infiniteScrollingDialog({
+      maxWidth: 420,
+      headerView: $('<span style="color:red;">Popup custom header</span>'),
+      // headerText: headerText,
+      showCancelButton: true,
+      onOpen: function($contentView) {
+        console.log("onOpen");
+        page = 0;
+      },
+      onLoad: function($contentView) {
+        $contentView.append(loadMore());
+      }
+    });
+    $dialog.popup();
+  });
+
+  $("#popupMargin").click(function() {
+    $dialog = $("#dialog").infiniteScrollingDialog({
+      headerText: "Popup margin",
+      showCancelButton: true,
+      popupPosition: [30,30],
+      onOpen: function($contentView) {
+        console.log("onOpen");
+        page = 0;
+      },
+      onLoad: function($contentView) {
+        $contentView.append(loadMore());
+      }
+    });
+    $dialog.popup();
+  });
+</script>
+</body>
+</html>

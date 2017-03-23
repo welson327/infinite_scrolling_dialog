@@ -1,0 +1,133 @@
+/* ----- common ----- */
+.b-close:hover {
+	cursor: pointer;
+	background-color: #bce8f1;
+}
+.stop-scrolling {
+	height: 100%;
+	overflow: hidden;
+}
+.isdOverflow {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.isdWordBreak {
+	-ms-word-break: break-all;
+
+	/* Be VERY careful with this, breaks normal words wh_erever */
+	word-break: break-all;
+
+	/* Non standard for webkit */
+	word-break: break-word;
+
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+}
+
+/* ----- bootstrap style ----- */
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+/* ----- isd ----- */
+.isdHeader {
+	/* bootstrap: alert-info */
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+
+	width: 100%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    height: 40px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    /*padding: 0px 10px;*/
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 1px 1px 2px #8EB7CC;
+}
+
+.isdBClose {
+	border-radius:0px; cursor:pointer; position:absolute; right:0px; padding:5px; z-index:10000;
+}
+.isdBClose img {
+	width:28px; height:28px;
+}
+
+.isdSearchInput {float:left; margin-left:0px; width:65%; height:25px; border-radius:0px; font-size:16px;
+}
+
+.isdSearchButton {
+	float:left; margin-left:3px;
+}
+
+.isdSearchButton img {
+	height:39px;
+}
+
+.isdContentView {
+	overflow-x:hidden; overflow-y:auto; height:400px; margin-top:0px; border-bottom: 1px solid #eee;
+}
+
+.isdFunctionBar {
+	text-align:center; height:auto; padding:5px; background:linear-gradient(#fff, #ddd); border-bottom-left-radius:0px; border-bottom-right-radius:0px;
+}
+
+.isdFunctionBarOkButton {
+	margin:0 5px;
+
+	color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+.isdFunctionBarCloseButton {
+	margin:0 5px;
+
+	color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
