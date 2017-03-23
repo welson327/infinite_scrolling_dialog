@@ -52,36 +52,36 @@ TBD
     $dialog.popup();
 
 ## Methods
-##### * $dialog.popup()
+#### $dialog.popup()
     Show dialog.
     
-##### * $dialog.getContentView():
+#### $dialog.getContentView():
     Return the div inside <div id="dialog"></div>.
     
-##### * $dialog.enableFunctionButtons(boolean isEnable)
+#### $dialog.enableFunctionButtons(boolean isEnable)
     Enable/disable buttons in funtion bar.
 
-##### * $dialog.getSearchInput()
+#### $dialog.getSearchInput()
     To get keyword for searching, you can
     var text = $dialog.getSearchInput().val();
 
-##### * $dialog.getSearchButton()
+#### $dialog.getSearchButton()
     $dialog.getSearchButton().click(function() {
         // do search 
     });
 
-##### * $dialog.setTotalCount(int value)
+#### $dialog.setTotalCount(int value)
     Set the total numbers after searching
     
-##### * $dialog.clearContent()
+#### $dialog.clearContent()
     Clear the content view
 
-##### * $dialog.closeDialog()
+#### $dialog.closeDialog()
     Close dialog.
 
-##### * $dialog.showLoading(boolean isShow)
+#### $dialog.showLoading(boolean isShow)
     Show the loading spinner in the function button bar
     
-##### * $dialog.load($contentView)
+#### $dialog.load($contentView)
     Call onLoad() programmatically
 
