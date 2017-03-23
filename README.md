@@ -11,7 +11,7 @@ Demo:
 TBD
 
 ## Dialog Life Cycle
-    onOpen() -> onLoad() -> onScrollToBottom() -> onLoad()
+    onOpen() -> onLoad() -> onScrollToBottom() if scrollbar at bottom -> onLoad()
 
 ## Sample Code:
 ### HTML:
@@ -51,4 +51,25 @@ TBD
     
     $dialog.popup();
 
+## Methods
+###### * $dialog.popup()
+    Show dialog
+###### * $dialog.getContentView():
+    Return the div inside <div id="dialog"></div>
+###### * $dialog.enableFunctionButtons(boolean isEnable)
+
+###### * $dialog.getSearchInput()
+
+###### * $dialog.getSearchButton()
+
+###### * $dialog.setTotalCount(int value)
+    Set the total numbers when searching
+###### * $dialog.clearContent()
+
+###### * $dialog.closeDialog()
+
+###### * $dialog.showLoading(boolean isShow)
+    Show the loading spinner in the function button bar
+###### * $dialog.load($contentView)
+    Call onLoad() programmatically
 
