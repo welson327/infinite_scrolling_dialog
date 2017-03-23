@@ -1,6 +1,7 @@
 //=====================================================
-// Purpose: impl infinite scrolling dialog
+// Purpose: Popup infinite-scrolling-dialog
 // Params:  opts = {
+//				backgroundColor: "#ffffff",
 //            	headerView: "<span>xxx</span>",
 //				useSearchBarHeader: false, // Invalid if headerView is defined
 //            	onOpen: function($contentView){}, 
@@ -8,13 +9,18 @@
 //            	onScrollToBottom: function(){},
 //            	onClose: function(){},
 //				spinnerColor: "#374962",
+//				showCancelButton: false,
 //				cancelButtonIconUrl: "img/isd_cancel_D94025.png",
 //				searchButtonIconUrl: "img/isd_search.png",
+//				popupPosition: [0, 0],
+//				maxWidth: 420,
+//				cancelButton: { name: "Cancel" },
+//				okButton: { name: "OK" },
 //		    }
 //			Life Cycle: 
 //				onOpen -> onLoad -> onScrollToBottom -> onLoad
 // Return:  jquery object
-// Remark:  (1)Dependency: bPopup.min.js
+// Remark:  (1)Dependency: jQuery, bPopup.min.js
 //          (2)infiniteScrollingDialog = isd
 // Author:  welson
 //=====================================================
@@ -157,7 +163,7 @@ $.fn.infiniteScrollingDialog = function(opts) {
 	    	//"border-radius": "10px",
 	    	"box-shadow": "0 8px 16px 0 rgba(0,0,0,0.9),0 6px 20px 0 rgba(0,0,0,0.19)",
 
-			"background-color": "#ffffff",
+			"background-color": opts.backgroundColor || "#ffffff",
 			"max-width": maxWidth+"px",
 			"width": w+"px",
 			"height": h+"px"
@@ -168,7 +174,7 @@ $.fn.infiniteScrollingDialog = function(opts) {
 			//opacity: 0.2,
 			position: xy,
 			onOpen: function() {
-				$("body").addClass("stop-scrolling");
+				$("body").addClass("isd-stop-scrolling");
 
 				if(opts && opts.headerView) {
 					console.log("[infinite-scrolling-dialog] Use custom header view.");
@@ -233,7 +239,7 @@ $.fn.infiniteScrollingDialog = function(opts) {
 					opts.onClose();
 				}
 
-				$("body").removeClass("stop-scrolling");
+				$("body").removeClass("isd-stop-scrolling");
 			}
 		});
 	};

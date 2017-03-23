@@ -3,7 +3,7 @@
 	cursor: pointer;
 	background-color: #bce8f1;
 }
-.stop-scrolling {
+.isd-stop-scrolling {
 	height: 100%;
 	overflow: hidden;
 }
