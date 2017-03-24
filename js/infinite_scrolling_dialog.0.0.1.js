@@ -47,6 +47,11 @@ $.fn.infiniteScrollingDialog = function(opts) {
 		var spinnerColor = opts ? opts.spinnerColor || "#374962" : "#374962";
 		var cancelName = cancelButton ? cancelButton.name || "Cancel" : "Cancel";
 		var okName = okButton ? okButton.name || "OK" : "OK";
+		// var icon_cancel = opts.cancelButtonIconUrl || "img/isd_cancel_D94025.png";
+		// var icon_search = opts.searchButtonIconUrl || "img/isd_search.png";
+		var icon_cancel = opts.cancelButtonIconUrl || "https://raw.githubusercontent.com/welson327/infinite_scrolling_dialog/master/img/isd_cancel_D94025.png";
+		var icon_search = opts.searchButtonIconUrl || "https://raw.githubusercontent.com/welson327/infinite_scrolling_dialog/master/img/isd_search.png";
+
 		var elem = "";
 		// elem += '<div id="infiniteScrollingDialog" p="0" data-p="0" style="display:none;">' +
 	    elem += '<div class="b-close isdBClose isdBCloseCustom"><img src="'+icon_cancel+'"></div>';
@@ -54,7 +59,7 @@ $.fn.infiniteScrollingDialog = function(opts) {
 	    elem += '<div class="isdOverflow isdHeader isdHeaderCustom" role="headerWrapper">';
 	    if(opts && opts.useSearchBarHeader) {
 	    	elem += '<div class="isdSearchWrapper">';
-            elem += 	'<input type="text" role="searchInput" class="form-control isdSearchInput isdSearchInputCustom" placeholder="'+(opts.placeholder || opts.headerText || "")+'" />';
+            elem += 	'<input type="text" role="searchInput" class="isd-form-control isdSearchInput isdSearchInputCustom" placeholder="'+(opts.placeholder || opts.headerText || "")+'" />';
             elem += 	'<a href="javascript:void(0)" role="searchButton" class="isdSearchButton isdSearchButtonCustom">';
             elem += 		'<img src="'+icon_search+'">';
             elem +=		'</a>';
@@ -68,9 +73,9 @@ $.fn.infiniteScrollingDialog = function(opts) {
 	    if(useFunctionBar) {
 		elem += '<div id="infiniteScrollingDialogFunctionBar" class="isdFunctionBar isdFunctionBarCustom">';
 			if(opts && opts.showCancelButton) {
-		    	elem += '<input id="infiniteScrollingDialogCloseButton" type="button" class="btn isdFunctionBarCloseButton isdFunctionBarCloseButtonCustom" value="'+ cancelName +'">';
+		    	elem += '<input id="infiniteScrollingDialogCloseButton" type="button" class="isd-btn isdFunctionBarCloseButton isdFunctionBarCloseButtonCustom" value="'+ cancelName +'">';
 			}
-	    elem += 		'<input id="infiniteScrollingDialogOkButton" type="button" class="btn isdFunctionBarOkButton isdFunctionBarOkButtonCustom" value="' + okName + '">';
+	    elem += 		'<input id="infiniteScrollingDialogOkButton" type="button" class="isd-btn isdFunctionBarOkButton isdFunctionBarOkButtonCustom" value="' + okName + '">';
 	    elem += '</div>';
 		}
 
@@ -85,8 +90,7 @@ $.fn.infiniteScrollingDialog = function(opts) {
 		return elem;
 	}
 
-	var icon_cancel = opts.cancelButtonIconUrl || "img/isd_cancel_D94025.png";
-	var icon_search = opts.searchButtonIconUrl || "img/isd_search.png";
+	
 
 	var win_w = $(window).width();
 	if(win_w < 2640) {
