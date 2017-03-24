@@ -102,3 +102,11 @@ Demo:
 #### $dialog.load()
     Call onLoad() programmatically
 
+## Custom Style
+You can impl. following css to define your style: ('isd' = infinite scrolling dialog) 
+* .isdBCloseCustom for close button
+* .isdSearchInputCustom for search input to get text
+* .isdSearchButtonCustom for search bottom to click
+* .isdContentViewCustom for content view of dialog
+* .isdFunctionBarCustom, .isdFunctionBarCloseButtonCustom, .isdFunctionBarOkButtonCustom for function bar/buttons
+It will override default css style.
