@@ -25,9 +25,9 @@ TBD
       cancelButtonIconUrl: "img/isd_cancel_D94025.png",
       searchButtonIconUrl: "img/isd_search.png",
       
-      // should be impl.
+      // should be defined.
       onOpen: function($contentView) {
-        // reset your data, such as range
+        // Reset your data range
         from = 0;
         returnSize = 0;
       },
@@ -39,13 +39,13 @@ TBD
       onScrollToBottom: function($contentView) {
         // do something before onLoad()
       },
-      maxWidth: 420, // In pixels. Default: full screen width.
-      popupPosition: [0, 0], // From point of left-top. Default: [0, 0].
-      useFunctionBar: true, // Default: true.
-      showCancelButton: false, // Default: false.
-      headerText: "Infinite Scrolling Dialog Popup", // Default: "".
-      useSearchBarHeader: false, // // prior than [headerText] // Default: false.
-      headerView: "<span>Custom Header View </span>", // prior than [useSearchBarHeader]
+      maxWidth: 420,            // In pixels. Default: full screen width.
+      popupPosition: [0, 0],    // From point of left-top. Default: [0, 0].
+      useFunctionBar: true,     // Default: true.
+      showCancelButton: false,  // Default: false.
+      headerText: "Infinite Scrolling Dialog Popup",    // Default: "".
+      useSearchBarHeader: false,                        // prior than [headerText] // Default: false.
+      headerView: "<span>Custom Header View </span>",   // prior than [useSearchBarHeader]
       placeholder: "placeholder text for search input",
       okButton: { name: "OK" },
       cancelButton: { name: "Cancel" },
