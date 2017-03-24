@@ -91,6 +91,6 @@ TBD
 #### $dialog.showLoading(boolean isShow)
     Show the loading spinner in the function button bar
     
-#### $dialog.load($contentView)
+#### $dialog.load()
     Call onLoad() programmatically
 
