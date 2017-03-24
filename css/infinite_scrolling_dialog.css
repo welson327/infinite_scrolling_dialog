@@ -1,8 +1,4 @@
 /* ----- common ----- */
-.b-close:hover {
-	cursor: pointer;
-	background-color: #bce8f1;
-}
 .isd-stop-scrolling {
 	height: 100%;
 	overflow: hidden;
@@ -92,7 +88,11 @@
 }
 
 .isdBClose {
-	border-radius:0px; cursor:pointer; position:absolute; right:0px; padding:5px; z-index:10000;
+	border-radius:0px; cursor:pointer; position:absolute; top:0px; right:0px; padding:4px 6px 3px 6px; z-index:10000;;
+}
+.isdBClose:hover {
+	cursor: pointer;
+	background-color: #bce8f1;
 }
 .isdBClose img {
 	width:28px; height:28px;

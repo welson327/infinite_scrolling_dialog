@@ -5,21 +5,83 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cantarell">
+
   <!-- Latest compiled and minified CSS -->
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+
   
   <link rel="stylesheet" href="css/infinite_scrolling_dialog.css">
-
+  <style>
+    body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, select, p, blockquote, th, td {
+      color: #444;
+      font: 14px/20px monospace, Verdana, Cantarell, sans-serif, \5FAE\8EDF\6B63\9ED1\9AD4,\65B0\7D30\660E\9AD4;/*微軟正黑體*/
+  }
+  </style>
   
 </head>
 
 <body>
 
 <div class="container-fluid" id="wrapper">
-  <button id="popupDefault">Popup Default</button>
-  <button id="popupSearchBarHeader">Popup SearchBar Header</button>
-  <button id="popupCustomHeader">Popup Custom Header</button>
-  <button id="popupMargin">Popup Margin 30px</button>
+  
+  <table border="1" bordercolor="#969696" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>Click to popup</td>
+      <td>Parameters</td>
+    </tr>
+    <tr>
+      <td>
+        <button id="popupDefault">Popup Default</button>
+      </td>
+      <td>
+        {<br>
+        &nbsp;&nbsp;onOpen: function($contentView) { ... },<br>
+        &nbsp;&nbsp;onLoad: function($contentView) { ... }<br>
+        }<br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button id="popupSearchBarHeader">Popup SearchBar Header</button>
+      </td>
+      <td>
+        {<br>
+        &nbsp;&nbsp;maxWidth: 420,<br>
+        &nbsp;&nbsp;useSearchBarHeader: true,<br>
+        &nbsp;&nbsp;onOpen: function($contentView) { ... },<br>
+        &nbsp;&nbsp;onLoad: function($contentView) { ... }<br>
+        }<br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button id="popupCustomHeader">Popup Custom Header</button>
+      </td>
+      <td>
+        {<br>
+        &nbsp;&nbsp;maxWidth: 420,<br>
+        &nbsp;&nbsp;headerView: $('&lt;span style="color:red;"&gt;Popup custom header&lt;/span&gt;'),</br>
+        &nbsp;&nbsp;onOpen: function($contentView) { ... },<br>
+        &nbsp;&nbsp;onLoad: function($contentView) { ... }<br>
+        }<br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button id="popupMargin">Popup Margin 30px</button>
+      </td>
+      <td>
+        {<br>
+        &nbsp;&nbsp;headerText: "Popup margin",<br>
+        &nbsp;&nbsp;showCancelButton: true,<br>
+        &nbsp;&nbsp;popupPosition: [30,30],<br>
+        &nbsp;&nbsp;onOpen: function($contentView) { ... },<br>
+        &nbsp;&nbsp;onLoad: function($contentView) { ... }<br>
+        }<br>
+      </td>
+    </tr>
+  </table>
 
   <div id="dialog"></div>
 </div>
