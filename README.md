@@ -14,9 +14,17 @@ TBD
     onOpen() -> onLoad() -> onScrollToBottom() if scrollbar at bottom -> onLoad()
 
 ## Sample Code:
-### HTML:
+### Usage:
+    CSS:
     <link rel="stylesheet" href="css/infinite_scrolling_dialog.css">
+    
+    HTML:
     <div id="dialog"></div>
+    
+    JS:
+    <script type="text/javascript" src="js/plugins/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.bpopup.min.js"></script>
+    <script type="text/javascript" src="js/infinite_scrolling_dialog.0.0.1.js"></script>
 
 ### Javascript:
 
