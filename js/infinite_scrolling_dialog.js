@@ -27,6 +27,8 @@
 $.fn.infiniteScrollingDialog = function(opts) {
 	opts = opts || {};
 
+	var useFunctionBar = (opts.useFunctionBar != undefined) ? opts.useFunctionBar : true;
+
 	function isDownScrollToElementBottom($elem) {
 		var dom = $elem[0];
 		var scrollPos = $elem.scrollTop();
@@ -62,14 +64,16 @@ $.fn.infiniteScrollingDialog = function(opts) {
 	    
 	    elem += '<div role="contentView" class="isdContentView isdContentViewCustom">';
 	    elem += '</div>';
+	    if(useFunctionBar) {
 		elem += '<div id="infiniteScrollingDialogFunctionBar" class="isdFunctionBar isdFunctionBarCustom">';
-		if(opts && opts.showCancelButton) {
-	    	elem += '<input id="infiniteScrollingDialogCloseButton" type="button" class="btn isdFunctionBarCloseButton isdFunctionBarCloseButtonCustom" value="'+ cancelName +'">';
-		}
-	    elem += 	'<input id="infiniteScrollingDialogOkButton" type="button" class="btn isdFunctionBarOkButton isdFunctionBarOkButtonCustom" value="' + okName + '">';
+			if(opts && opts.showCancelButton) {
+		    	elem += '<input id="infiniteScrollingDialogCloseButton" type="button" class="btn isdFunctionBarCloseButton isdFunctionBarCloseButtonCustom" value="'+ cancelName +'">';
+			}
+	    elem += 		'<input id="infiniteScrollingDialogOkButton" type="button" class="btn isdFunctionBarOkButton isdFunctionBarOkButtonCustom" value="' + okName + '">';
 	    elem += '</div>';
+		}
 
-	    elem += '<div class="spinner" style="margin-top:5px; display:none;">';
+	    elem += '<div class="isdSpinner" style="margin-top:8px; display:none;">';
 		elem += 	'<div class="rect1" style="margin:1.5px; background-color:' + spinnerColor + ';"></div>';
 		elem += 	'<div class="rect2" style="margin:1.5px; background-color:' + spinnerColor + ';"></div>';
 		elem += 	'<div class="rect3" style="margin:1.5px; background-color:' + spinnerColor + ';"></div>';
@@ -106,11 +110,17 @@ $.fn.infiniteScrollingDialog = function(opts) {
 	var $contentView = $("[role=contentView]", this);
 
 	var $functionBar = $("#infiniteScrollingDialogFunctionBar", this);
-	var $loadingAtBottom = $(".spinner", this);
+	var $loadingAtBottom = $(".isdSpinner", this);
 
 	
+	$this.getHeader = function() {
+		return $headerWrapper;
+	};
 	$this.getContentView = function() {
 		return $contentView;
+	};
+	$this.getFunctionBar = function() {
+		return $functionBar;
 	};
 
 	$this.enableFunctionButtons = function(isEnable) {
@@ -141,12 +151,21 @@ $.fn.infiniteScrollingDialog = function(opts) {
 		}
 	};
 	$this.showLoading = function(isLoading) {
-		if(isLoading) {
-			$functionBar.hide();
-			$loadingAtBottom.show();
+		if(useFunctionBar) {
+			if(isLoading) {
+				$functionBar.hide();
+				$loadingAtBottom.show();
+			} else {
+				$loadingAtBottom.hide();
+				$functionBar.show();
+			}
 		} else {
-			$loadingAtBottom.hide();
-			$functionBar.show();
+			$functionBar.hide();
+			if(isLoading) {
+				$loadingAtBottom.show();
+			} else {
+				$loadingAtBottom.hide();
+			}
 		}
 	};
 	$this.load = function($contentView) {
@@ -177,18 +196,17 @@ $.fn.infiniteScrollingDialog = function(opts) {
 				$("body").addClass("isd-stop-scrolling");
 
 				if(opts && opts.headerView) {
-					console.log("[infinite-scrolling-dialog] Use custom header view.");
+					//console.log("[infinite-scrolling-dialog] Use custom header view.");
 					$headerWrapper.empty().append(opts.headerView);
 				} else if(opts && opts.useSearchBarHeader) {
-					console.log("[infinite-scrolling-dialog] Use search bar header.");
+					//console.log("[infinite-scrolling-dialog] Use search bar header.");
 				} else if(opts && opts.headerText) {
-					console.log("[infinite-scrolling-dialog] Use header text.");
+					//console.log("[infinite-scrolling-dialog] Use header text.");
 					$headerWrapper.text(opts.headerText);
-					//$headerWrapper.empty().append('<span>'+opts.headerText+'</span>');
 				}
 
 				$contentView.css({
-					"height": (h-84)+"px"
+					"height": (h-(useFunctionBar?84:0))+"px"
 				});
 
 				if(opts.onOpen) {
