@@ -169,7 +169,7 @@ $.fn.infiniteScrollingDialog = function(opts) {
 			}
 		}
 	};
-	$this.load = function($contentView) {
+	$this.load = function() {
 		if(opts.onLoad) {
 			opts.onLoad($contentView);
 		} else {
