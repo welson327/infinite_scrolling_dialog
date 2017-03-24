@@ -30,10 +30,6 @@ Demo:
 
     var $dialog = $("#dialog").infiniteScrollingDialog({
       // required
-      cancelButtonIconUrl: "img/isd_cancel_D94025.png",
-      searchButtonIconUrl: "img/isd_search.png",
-      
-      // should be defined.
       onOpen: function($contentView) {
         // Reset your data range
         from = 0;
@@ -58,6 +54,8 @@ Demo:
       okButton: { name: "OK" },
       cancelButton: { name: "Cancel" },
       spinnerColor: "#374962",
+      cancelButtonIconUrl: "img/isd_cancel_D94025.png",
+      searchButtonIconUrl: "img/isd_search.png",
     });
     
     $dialog.popup();
