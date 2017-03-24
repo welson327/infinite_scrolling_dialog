@@ -39,14 +39,17 @@ TBD
       onScrollToBottom: function($contentView) {
         // do something before onLoad()
       },
-      maxWidth: 420, // in pixels
-      startPosition: [0, 0], // from point of left-top
-      showCancelButton: false,
-      headerText: "Infinite Scrolling Dialog Popup",
-      useSearchBarHeader: false, // // prior than [headerText]
+      maxWidth: 420, // In pixels. Default: full screen width.
+      popupPosition: [0, 0], // From point of left-top. Default: [0, 0].
+      useFunctionBar: true, // Default: true.
+      showCancelButton: false, // Default: false.
+      headerText: "Infinite Scrolling Dialog Popup", // Default: "".
+      useSearchBarHeader: false, // // prior than [headerText] // Default: false.
       headerView: "<span>Custom Header View </span>", // prior than [useSearchBarHeader]
+      placeholder: "placeholder text for search input",
       okButton: { name: "OK" },
       cancelButton: { name: "Cancel" },
+      spinnerColor: "#374962",
     });
     
     $dialog.popup();
@@ -54,9 +57,15 @@ TBD
 ## Methods
 #### $dialog.popup()
     Show dialog.
+
+#### $dialog.getHeader():
+    Return the dialog header div.
     
 #### $dialog.getContentView():
-    Return the div inside <div id="dialog"></div>.
+    Return the dialog content(body) div.
+    
+#### $dialog.getFunctionBar():
+    Return the bottom function bar div.
     
 #### $dialog.enableFunctionButtons(boolean isEnable)
     Enable/disable buttons in funtion bar.
