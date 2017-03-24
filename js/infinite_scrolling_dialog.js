@@ -4,6 +4,7 @@
 //				backgroundColor: "#ffffff",
 //            	headerView: "<span>xxx</span>",
 //				useSearchBarHeader: false, // Invalid if headerView is defined
+//				placeholder: "placeholder for search input",
 //            	onOpen: function($contentView){}, 
 //            	onLoad: function($contentView){},
 //            	onScrollToBottom: function(){},
@@ -50,9 +51,9 @@ $.fn.infiniteScrollingDialog = function(opts) {
 		// elem += '<div id="infiniteScrollingDialog" p="0" data-p="0" style="display:none;">' +
 	    elem += '<div class="b-close isdBClose isdBCloseCustom"><img src="'+icon_cancel+'"></div>';
 
-	    elem += '<div role="headerWrapper" class="isdOverflow isdHeader isdHeaderCustom">';
+	    elem += '<div class="isdOverflow isdHeader isdHeaderCustom" role="headerWrapper">';
 	    if(opts && opts.useSearchBarHeader) {
-	    	elem += '<div style="display:show;" role="searchWrapper">';
+	    	elem += '<div class="isdSearchWrapper">';
             elem += 	'<input type="text" role="searchInput" class="form-control isdSearchInput isdSearchInputCustom" placeholder="'+(opts.placeholder || opts.headerText || "")+'" />';
             elem += 	'<a href="javascript:void(0)" role="searchButton" class="isdSearchButton isdSearchButtonCustom">';
             elem += 		'<img src="'+icon_search+'">';

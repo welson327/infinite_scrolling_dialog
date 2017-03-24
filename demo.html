@@ -50,6 +50,7 @@
           {<br>
           &nbsp;&nbsp;maxWidth: 420,<br>
           &nbsp;&nbsp;useSearchBarHeader: true,<br>
+          &nbsp;&nbsp;placeholder: "Search ...",<br>
           &nbsp;&nbsp;onOpen: function($contentView) { ... },<br>
           &nbsp;&nbsp;onLoad: function($contentView) { ... }<br>
           }<br>
@@ -157,6 +158,7 @@
     $dialog = $("#dialog").infiniteScrollingDialog({
       maxWidth: 420,
       useSearchBarHeader: true,
+      placeholder: "Search something ...",
       onOpen: function($contentView) {
         console.log("onOpen");
         page = 0;
