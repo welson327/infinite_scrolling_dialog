@@ -14,9 +14,17 @@ TBD
     onOpen() -> onLoad() -> onScrollToBottom() if scrollbar at bottom -> onLoad()
 
 ## Sample Code:
-### HTML:
+### Usage:
+    CSS:
     <link rel="stylesheet" href="css/infinite_scrolling_dialog.css">
+    
+    HTML:
     <div id="dialog"></div>
+    
+    JS:
+    <script type="text/javascript" src="js/plugins/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.bpopup.min.js"></script>
+    <script type="text/javascript" src="js/infinite_scrolling_dialog.0.0.1.js"></script>
 
 ### Javascript:
 
@@ -25,9 +33,9 @@ TBD
       cancelButtonIconUrl: "img/isd_cancel_D94025.png",
       searchButtonIconUrl: "img/isd_search.png",
       
-      // should be impl.
+      // should be defined.
       onOpen: function($contentView) {
-        // reset your data, such as range
+        // Reset your data range
         from = 0;
         returnSize = 0;
       },
@@ -39,14 +47,17 @@ TBD
       onScrollToBottom: function($contentView) {
         // do something before onLoad()
       },
-      maxWidth: 420, // in pixels
-      startPosition: [0, 0], // from point of left-top
-      showCancelButton: false,
-      headerText: "Infinite Scrolling Dialog Popup",
-      useSearchBarHeader: false, // // prior than [headerText]
-      headerView: "<span>Custom Header View </span>", // prior than [useSearchBarHeader]
+      maxWidth: 420,            // In pixels. Default: full screen width.
+      popupPosition: [0, 0],    // From point of left-top. Default: [0, 0].
+      useFunctionBar: true,     // Default: true.
+      showCancelButton: false,  // Default: false.
+      headerText: "Infinite Scrolling Dialog Popup",    // Default: "".
+      useSearchBarHeader: false,                        // prior than [headerText] // Default: false.
+      headerView: "<span>Custom Header View </span>",   // prior than [useSearchBarHeader]
+      placeholder: "placeholder text for search input",
       okButton: { name: "OK" },
       cancelButton: { name: "Cancel" },
+      spinnerColor: "#374962",
     });
     
     $dialog.popup();
@@ -54,9 +65,15 @@ TBD
 ## Methods
 #### $dialog.popup()
     Show dialog.
+
+#### $dialog.getHeader():
+    Return the dialog header div.
     
 #### $dialog.getContentView():
-    Return the div inside <div id="dialog"></div>.
+    Return the dialog content(body) div.
+    
+#### $dialog.getFunctionBar():
+    Return the bottom function bar div.
     
 #### $dialog.enableFunctionButtons(boolean isEnable)
     Enable/disable buttons in funtion bar.
@@ -82,6 +99,6 @@ TBD
 #### $dialog.showLoading(boolean isShow)
     Show the loading spinner in the function button bar
     
-#### $dialog.load($contentView)
+#### $dialog.load()
     Call onLoad() programmatically
 
