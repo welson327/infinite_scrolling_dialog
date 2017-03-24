@@ -8,7 +8,7 @@ Dependency:
 * bPopup: <a href="http://dinbror.dk/bpopup/">http://dinbror.dk/bpopup/</a>
 
 Demo:
-TBD
+<a href="https://cdn.rawgit.com/welson327/infinite_scrolling_dialog/678dedba/demo.html">https://cdn.rawgit.com/welson327/infinite_scrolling_dialog/678dedba/demo.html</a>
 
 ## Dialog Life Cycle
     onOpen() -> onLoad() -> onScrollToBottom() if scrollbar at bottom -> onLoad()
