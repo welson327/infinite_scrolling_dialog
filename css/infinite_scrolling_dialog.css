@@ -155,7 +155,7 @@
 	height: 100%;
 }
 .isdSearchInput {
-	float:left; margin-left:0px; width:65%; height:38px; border-radius:0px; font-size:16px; padding:0px 6px;
+  float: left; margin-left: 1px; margin-top: 1px; width: 65%; height: 37px; border-radius: 0px; font-size: 16px; padding: 0px 6px;
 }
 
 .isdSearchButton {
