@@ -17,6 +17,9 @@
 //				maxWidth: 420,
 //				cancelButton: { name: "Cancel" },
 //				okButton: { name: "OK" },
+//				transition: 'none', // behavior of popup transition
+//				speed: 500,			// speed of popup to display
+//				opacity: 0.7		// opacity of next layer of popup
 //		    }
 //			Life Cycle: 
 //				onOpen -> onLoad -> onScrollToBottom -> onLoad
@@ -28,6 +31,7 @@
 $.fn.infiniteScrollingDialog = function(opts) {
 	opts = opts || {};
 
+	//var useHeader = (opts.useHeader != undefined) ? opts.useHeader : true;
 	var useFunctionBar = (opts.useFunctionBar != undefined) ? opts.useFunctionBar : true;
 
 	function isDownScrollToElementBottom($elem) {
@@ -195,8 +199,10 @@ $.fn.infiniteScrollingDialog = function(opts) {
 		$dialog.bPopup({
 			// closeClass: "b-close",
 			// modalClose: false,
-			//opacity: 0.2,
+			opacity: opts.opacity || 0.7,
 			position: xy,
+			transition: opts.transition || 'none', // 'slideIn', 'slideBack', 'slideDown', 'slideUp'
+			speed: opts.speed || 300,
 			onOpen: function() {
 				$("body").addClass("isd-stop-scrolling");
 
