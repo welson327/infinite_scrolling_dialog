@@ -56,6 +56,9 @@ Demo:
       spinnerColor: "#374962",
       cancelButtonIconUrl: "img/isd_cancel_D94025.png",
       searchButtonIconUrl: "img/isd_search.png",
+      transition: 'none', 'slideIn', 'slideBack', 'slideDown', 'slideUp'
+      speed: 500,
+      opacity: 0.7
     });
     
     $dialog.popup();
