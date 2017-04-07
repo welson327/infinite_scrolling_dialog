@@ -141,11 +141,11 @@
 }
 
 .isdBClose {
-	border-radius:0px; cursor:pointer; position:absolute; top:0px; right:0px; padding:6px; z-index:10000;
+	border-radius:0px; cursor:pointer; position:absolute; top:0px; right:0px; z-index:10000; height:40px;
 }
 .isdBClose:hover {
 	cursor: pointer;
-	background-color: #bce8f1;
+	/*background-color: #bce8f1;*/
 }
 .isdBClose img {
 	width:28px; height:28px;
@@ -185,6 +185,51 @@
 	margin:0 5px;
 
 	color: #fff;
-    background-color: #f0ad4e;
-    border-color: #eea236;
+  background-color: #f0ad4e;
+  border-color: #eea236;
 }
+
+/* --- css close btn --- */
+.isdCssClose {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+}
+.isdCssClose:hover::before, .isdCssClose:hover::after {
+  /*background: #1ebcc5;*/
+  background: red;
+}
+.isdCssClose::before, .isdCssClose::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  background: #D94025;
+}
+.isdCssClose::before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.isdCssClose::after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.isdCssClose.stroke::before, .isdCssClose.stroke::after {
+  height: 6px;
+  margin-top: -3px;
+}
+.isdCssClose.rounded::before, .isdCssClose.rounded::after {
+  border-radius: 5px;
+}
+

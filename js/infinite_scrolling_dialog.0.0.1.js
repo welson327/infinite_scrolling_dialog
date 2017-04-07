@@ -53,12 +53,16 @@ $.fn.infiniteScrollingDialog = function(opts) {
 		var okName = okButton ? okButton.name || "OK" : "OK";
 		// var icon_cancel = opts.cancelButtonIconUrl || "img/isd_cancel_D94025.png";
 		// var icon_search = opts.searchButtonIconUrl || "img/isd_search.png";
-		var icon_cancel = opts.cancelButtonIconUrl || "https://raw.githubusercontent.com/welson327/infinite_scrolling_dialog/master/img/isd_cancel_D94025.png";
+		var icon_cancel = opts.cancelButtonIconUrl;// || "https://raw.githubusercontent.com/welson327/infinite_scrolling_dialog/master/img/isd_cancel_D94025.png";
 		var icon_search = opts.searchButtonIconUrl || "https://raw.githubusercontent.com/welson327/infinite_scrolling_dialog/master/img/isd_search.png";
 
 		var elem = "";
-		// elem += '<div id="infiniteScrollingDialog" p="0" data-p="0" style="display:none;">' +
-	    elem += '<div class="b-close isdBClose isdBCloseCustom"><img src="'+icon_cancel+'"></div>';
+
+		if(icon_cancel) {
+	    	elem += '<div class="b-close isdBClose isdBCloseCustom"><img src="'+icon_cancel+'"></div>';
+		} else {
+	    	elem += '<div class="b-close isdBClose isdBCloseCustom"><span class="isdCssClose rounded stroke"></div>';
+		}
 
 	    elem += '<div class="isdOverflow isdHeader isdHeaderCustom" role="headerWrapper">';
 	    if(opts && opts.useSearchBarHeader) {
